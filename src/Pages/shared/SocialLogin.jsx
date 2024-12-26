@@ -36,7 +36,7 @@ const SocialLogin = ({roleSignUp, userStatus}) => {
                         body: JSON.stringify(userData),
                        });
                     const data = await response.json();
-                        console.log(data)
+                        
                 }
                 fetchData();
 
@@ -44,7 +44,7 @@ const SocialLogin = ({roleSignUp, userStatus}) => {
                 navigate('/');
             })
             .catch(error => {
-                console.log(error.message)
+                // console.log(error.message)
             })
     }
     return (
