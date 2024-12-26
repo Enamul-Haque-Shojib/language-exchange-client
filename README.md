@@ -20,7 +20,7 @@
   - tutor or student can see all tutorial by filter or search bar 
 
 ### Frontend: React js, Firebase, tailwind , react router dom
-## Backend: express js, typescript, jwt, mongoose
+### Backend: express js, typescript, jwt, mongoose
 
 
    
