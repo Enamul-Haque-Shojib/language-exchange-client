@@ -13,8 +13,7 @@ const AuthProvider = ({children}) => {
     const [role, setRole] = useState(null);
     const [loading, setLoading] = useState(true);
 
-    console.log(role)
-    
+     
 
     const [categories, setCategories] = useState([]);
     const [tutors, setTutors] = useState([]);
