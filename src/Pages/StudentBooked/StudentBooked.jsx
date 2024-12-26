@@ -75,7 +75,6 @@ const StudentBooked = () => {
       You can only delete a student if they have left the tutorial.
     </p>
 
-    
     <div className="overflow-x-auto">
       <table className="w-full table-auto border-collapse">
         <thead className="bg-gradient-to-r from-blue-500 to-blue-700 text-white">
@@ -91,7 +90,6 @@ const StudentBooked = () => {
               key={index}
               className="hover:bg-gray-50 transition border-b last:border-0"
             >
-          
               <td className="p-4 text-gray-800 text-center text-xl">{student.email}</td>
 
           
@@ -127,7 +125,6 @@ const StudentBooked = () => {
     </div>
   </div>
 
-  
   <div className="flex flex-col items-center space-y-4">
     <p className="text-lg text-red-500 text-center max-w-lg">
       If at least one student is still in progress, you cannot delete your
@@ -142,8 +139,7 @@ const StudentBooked = () => {
     </button>
   </div>
 </div>
-
-    
+   
     );
 };
 
