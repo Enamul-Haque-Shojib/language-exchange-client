@@ -80,7 +80,7 @@ const AuthProvider = ({children}) => {
 
                 axios.post('https://language-exchange-server-mu.vercel.app/api/token_access/jwt', user, { withCredentials: true })
                     .then(res => {
-                        // console.log('login token', res);
+                        
                         setRole(res.data.data.role)
                         setLoading(false);
                 })
@@ -91,7 +91,7 @@ const AuthProvider = ({children}) => {
                     withCredentials: true
                 })
                 .then(res => {
-                    // console.log('logout', res.data);
+                   
                     setRole(null)
                     setLoading(false);
                 })
