@@ -19,7 +19,7 @@
   - student can review by comment, he can comment how much he wants but the tutor's review will be count or increase 1 thats mean the review will increase only by new student.
   - tutor or student can see all tutorial by filter or search bar 
 
-## Frontend: React js, Firebase, tailwind , react router dom
+### Frontend: React js, Firebase, tailwind , react router dom
 ## Backend: express js, typescript, jwt, mongoose
 
 
