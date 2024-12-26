@@ -23,13 +23,12 @@ const SimilarTutorials = ({language, id}) => {
                 <div className="max-w-sm mx-auto bg-white shadow-lg rounded-lg overflow-hidden border" onClick={()=>{navigate(`/tutor_details/${tutorial._id}`)}}>
                   <div className="relative">
                     <img
-                      src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTGkEQZDzsYImwLosQHL9jGjds7t1qP30ZwgA&s'
-                      alt="Teacher background"
+                      src={tutorial.tutorialImageURL}
                       className="w-full h-40 object-cover"
                     />
                     <div className="absolute top-28 left-4 w-16 h-16 bg-white rounded-full border-2 border-gray-200">
                       <img
-                        src='https://t3.ftcdn.net/jpg/02/43/12/34/360_F_243123463_zTooub557xEWABDLk0jJklDyLSGl2jrr.jpg'
+                        src={tutorial.userImageURL}
                         alt="User"
                         className="w-full h-full rounded-full object-cover"
                       />

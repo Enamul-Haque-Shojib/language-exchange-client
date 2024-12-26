@@ -55,7 +55,7 @@ const InProgressBookedTutorials = () => {
               className="bg-white border rounded-xl shadow-md p-6 flex flex-col md:flex-row items-center gap-6"
             >
               {/* Left Section - Image and Details */}
-              <div className="flex items-center gap-6 w-[20%] md:w-2/3">
+              <div className="flex items-center gap-6 w-[30%] md:w-2/3">
                 {/* Tutorial Image */}
                 <img
                   src={tutorial.userImageURL}
@@ -74,6 +74,9 @@ const InProgressBookedTutorials = () => {
 
               <p className="text-sm text-gray-500">
                   <strong>Price:</strong> {tutorial.price}
+                </p>
+              <p className="text-sm text-gray-500">
+                  <strong>Review:</strong> {tutorial.review}
                 </p>
 
             

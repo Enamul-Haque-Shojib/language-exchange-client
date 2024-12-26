@@ -46,10 +46,10 @@ const AddTutorials = () => {
                 setCustomValue("");
                 
             }else{
-                console.log('Please give a valid language')
+                toast.warning('Please give a valid language')
             }
         }else{
-            console.log('the name of Language has already selection option, please select ')
+          toast.warning('the name of Language has already selection option, please select ')
             setLogoURL_open(false)
         }
     };
@@ -88,6 +88,7 @@ const isValid12HourTime = (time) => {
                     .then(data => {
                         console.log(data)
                         toast.success('Your Tutorial successfully created')
+                        
                     })
                     
             }else{

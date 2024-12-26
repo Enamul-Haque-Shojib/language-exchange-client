@@ -210,7 +210,7 @@ return (
       <div className="w-[30%]  p-6 ">
         <div className="bg-white rounded-lg p-6 sticky top-20 shadow-md">
           <img
-            src='https://blog.ted.com/wp-content/uploads/sites/2/2014/11/learning_a_language.png'
+            src={tutorialImageURL}
             alt="Tutorial"
             className="rounded-md mb-4"
           />

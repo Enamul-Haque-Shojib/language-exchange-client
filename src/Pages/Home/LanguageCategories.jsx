@@ -26,7 +26,7 @@ const LanguageCategories = () => {
           
     
     return (
-        <div className="lg:w-[90%] w-[95%] mx-auto">
+        <div className="lg:w-[90%] w-[95%] mx-auto my-10">
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
           {teachersNumber?.map((category, index) => (
             <div

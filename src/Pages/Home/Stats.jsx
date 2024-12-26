@@ -16,8 +16,8 @@ const Stats = () => {
     },[]);
     return (
         
-        <div className="lg:w-[90%] w-[95%] mx-auto">
-  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 shadow-md p-6 rounded-xl bg-white">
+        <div className="lg:w-[90%] w-[95%] mx-auto my-10">
+  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 p-6 rounded-xl bg-white">
     <div className="stat flex flex-col items-center p-4 bg-gray-50 rounded-lg shadow hover:shadow-lg transition duration-300">
       <div className="stat-title text-lg font-semibold text-gray-600 text-center">Tutors</div>
       <div className="stat-value text-4xl font-bold text-blue-600 text-center">{statsNumber?.tutors}+</div>

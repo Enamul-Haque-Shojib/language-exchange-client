@@ -167,7 +167,7 @@ const Navbar = () => {
               Home
             </NavLink>
             <NavLink
-              to="/find_tutors"
+              to="/find_tutors/All"
               className="block text-lg hover:text-indigo-500"
               activeclassname="active"
               onClick={handleNavField}
