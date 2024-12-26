@@ -24,8 +24,6 @@ const Profile = () => {
 
         const userUpdateData = {name: displayName, email}
        
-        
-        
             updateUserProfile(auth.currentUser, displayName, photoURL)
                 .then(() => {
                   
