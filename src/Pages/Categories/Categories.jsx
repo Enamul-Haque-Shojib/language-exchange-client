@@ -6,8 +6,6 @@ import { Link } from 'react-router-dom';
 const Categories = () => {
     const {categories} = useAuth();
 
-
-  
     return (
         <div className="bg-gray-100 p-5 rounded-lg shadow-lg lg:w-[20%] w-full sticky top-20">
           <h2 className="text-xl font-semibold mb-4 text-gray-800">Categories</h2>
