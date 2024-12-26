@@ -31,7 +31,7 @@ const FindTutors = () => {
         const languageName = e.target.name.value;
         
 console.log(languageName)
-        axios.get(`http://localhost:5000/api/tutorials?language=${languageName}`)
+        axios.get(`https://language-exchange-server-mu.vercel.app/api/tutorials?language=${languageName}`)
         .then(res => {
             console.log(res.data)
             setTutors(res.data.data);

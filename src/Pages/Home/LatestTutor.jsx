@@ -11,7 +11,7 @@ const LatestTutor = () => {
    
     useEffect(() =>{
     
-        axios.get(`http://localhost:5000/api/users/img-tutor`)
+        axios.get(`https://language-exchange-server-mu.vercel.app/api/users/img-tutor`)
         .then(res => {
             console.log(res.data)
             setImages(res.data.data);

@@ -30,7 +30,7 @@ const Profile = () => {
                 .then(() => {
                   
                   const fetchData = async()=>{
-                    const response = await fetch(`http://localhost:5000/api/users/${email}`,{
+                    const response = await fetch(`https://language-exchange-server-mu.vercel.app/api/users/${email}`,{
                         method: 'PATCH',
                         headers: {
                             'Content-Type': 'application/json', 
@@ -79,7 +79,7 @@ const handleDeleteAccount=async()=>{
       .then(() => {
                       
         const fetchData = async()=>{
-          const response = await fetch(`http://localhost:5000/api/users/${email}`,{
+          const response = await fetch(`https://language-exchange-server-mu.vercel.app/api/users/${email}`,{
               method: 'DELETE',
               headers: {
                   'Content-Type': 'application/json', 

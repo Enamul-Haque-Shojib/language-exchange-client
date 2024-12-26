@@ -9,7 +9,7 @@ const FeedBack = () => {
     const [feedbacks, setFeedbacks] = useState([]);
 
     useEffect(() => {
-        axios.get(`http://localhost:5000/api/users/feedback`)
+        axios.get(`https://language-exchange-server-mu.vercel.app/api/users/feedback`)
             .then(res => {
         
                 setFeedbacks(res.data.data);

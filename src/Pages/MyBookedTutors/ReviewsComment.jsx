@@ -19,7 +19,7 @@ const ReviewsComment = () => {
             comment
         } 
         console.log(userReview, id);
-        axios.patch(`http://localhost:5000/api/tutorials/user-review/${id}`,userReview)
+        axios.patch(`https://language-exchange-server-mu.vercel.app/api/tutorials/user-review/${id}`,userReview)
             .then(res => {
             console.log(res)
                  

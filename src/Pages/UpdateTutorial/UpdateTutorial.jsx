@@ -85,7 +85,7 @@ const isValid12HourTime = (time) => {
         
         if(isValid12HourTime(initialData.time)){
         
-                fetch(`http://localhost:5000/api/tutorials/${_id}`, {
+                fetch(`https://language-exchange-server-mu.vercel.app/api/tutorials/${_id}`, {
                     method: 'PATCH',
                     headers: {
                         'content-type': 'application/json'

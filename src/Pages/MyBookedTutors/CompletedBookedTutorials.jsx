@@ -13,7 +13,7 @@ const CompletedBookedTutorials = () => {
 
     
     useEffect(() => {
-        axios.get(`http://localhost:5000/api/tutorials/student-all-booked/booked?userBooked.email=${user?.email}&userBooked.isCompleted=true`)
+        axios.get(`https://language-exchange-server-mu.vercel.app/api/tutorials/student-all-booked/booked?userBooked.email=${user?.email}&userBooked.isCompleted=true`)
                 .then(res => {
                     
                     setTutorials(res.data.data);
@@ -25,7 +25,7 @@ const CompletedBookedTutorials = () => {
 
     const handleMyBookedTutorialDelete=(id)=>{
             
-        axios.patch(`http://localhost:5000/api/tutorials/student-booked-delete/${id}`, {email: user?.email})
+        axios.patch(`https://language-exchange-server-mu.vercel.app/api/tutorials/student-booked-delete/${id}`, {email: user?.email})
         .then(res => {
             
             const newBookedData = tutorials.filter(data => data._id != id)

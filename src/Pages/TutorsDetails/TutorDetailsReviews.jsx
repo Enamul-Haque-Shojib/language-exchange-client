@@ -7,7 +7,7 @@ const TutorDetailsReviews = ({id}) => {
     console.log(reviews)
 
     useEffect(() => {
-        axios.get(`http://localhost:5000/api/tutorials/${id}`)
+        axios.get(`https://language-exchange-server-mu.vercel.app/api/tutorials/${id}`)
             .then(res => {
             setReviews(res.data.data.userReview);
         })

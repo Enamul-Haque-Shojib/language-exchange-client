@@ -44,7 +44,7 @@ import ReviewsComment from "../Pages/MyBookedTutors/ReviewsComment";
         {
           path: '/student_booked/:id',
           element: <PrivateRoute><StudentBooked></StudentBooked></PrivateRoute>,
-          loader: ({params}) => fetch(`http://localhost:5000/api/tutorials/${params.id}`)
+          loader: ({params}) => fetch(`https://language-exchange-server-mu.vercel.app/api/tutorials/${params.id}`)
         },
         
         {
@@ -66,19 +66,19 @@ import ReviewsComment from "../Pages/MyBookedTutors/ReviewsComment";
         {
           path: '/update_tutorial/:id',
           element: <PrivateRoute><UpdateTutorial></UpdateTutorial></PrivateRoute>,
-          loader: ({params}) => fetch(`http://localhost:5000/api/tutorials/${params.id}`)
+          loader: ({params}) => fetch(`https://language-exchange-server-mu.vercel.app/api/tutorials/${params.id}`)
 
         },
         {
           path: '/find_tutors/:category',
           element: <FindTutors></FindTutors>,
-          loader: ({params}) => fetch(`http://localhost:5000/api/tutorials`)
+          loader: ({params}) => fetch(`https://language-exchange-server-mu.vercel.app/api/tutorials`)
           
         },
         {
           path: '/tutor_details/:id',
           element: <TutorsDetails></TutorsDetails>,
-          loader: ({params}) => fetch(`http://localhost:5000/api/tutorials/${params.id}`)
+          loader: ({params}) => fetch(`https://language-exchange-server-mu.vercel.app/api/tutorials/${params.id}`)
         },
         
       ]

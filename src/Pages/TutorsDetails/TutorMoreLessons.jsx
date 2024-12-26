@@ -9,7 +9,7 @@ const TutorMoreLessons = ({id, email}) => {
     const [lessons, setLessons] = useState([]);
 
     useEffect(() => {
-        axios.get(`http://localhost:5000/api/tutorials?email=${email}`)
+        axios.get(`https://language-exchange-server-mu.vercel.app/api/tutorials?email=${email}`)
                     .then(res => {
                         console.log(res.data.data)
                         const lessonsData = res?.data?.data.filter(lesson => lesson._id !=id)
@@ -32,7 +32,7 @@ const TutorMoreLessons = ({id, email}) => {
                 <div className="flex items-center gap-4">
             
                   <img
-                    src="https://cdn2.psychologytoday.com/assets/styles/manual_crop_16_9_1200x675/public/field_blog_entry_teaser_image/2020-01/language.jpg?itok=p2lBvqbD"
+                    src={lesson.tutorialImageURL}
                     className="w-16 h-16 rounded-md object-cover"
                     alt="Lesson Thumbnail"
                   />

@@ -33,7 +33,7 @@ const Navbar = () => {
     <div className="bg-gradient-to-r from-purple-600 to-indigo-600 shadow-md text-white sticky top-0 z-50">
       <div className="container mx-auto px-6 py-4 flex justify-between items-center">
       
-        <h1 className="text-2xl font-extrabold tracking-wider">Sportanicals</h1>
+        <h1 className="text-2xl font-extrabold tracking-wider">Language Exchange</h1>
 
       
         <div className="hidden lg:flex space-x-6 items-center">

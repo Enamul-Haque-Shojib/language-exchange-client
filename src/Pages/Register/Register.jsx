@@ -28,13 +28,13 @@ const Register = () => {
         const userData = {user:{name:displayName, email, photoURL, role}}
         
         
-        // const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z]).{6,}$/;
-        // if (!passwordRegex.test(password)) {
-        //     toast.error(
-        //         "Password must contain at least 6 characters, including an uppercase letter and a lowercase letter."
-        //     );
-        //     return;
-        // }
+        const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z]).{6,}$/;
+        if (!passwordRegex.test(password)) {
+            toast.error(
+                "Password must contain at least 6 characters, including an uppercase letter and a lowercase letter."
+            );
+            return;
+        }
 
     
 
@@ -48,7 +48,7 @@ const Register = () => {
                         
 
                         const fetchData = async()=>{
-                            const response = await fetch('http://localhost:5000/api/users/register-user',{
+                            const response = await fetch('https://language-exchange-server-mu.vercel.app/api/users/register-user',{
                                 method: 'POST',
                                 headers: {
                                     'Content-Type': 'application/json', 

@@ -5,7 +5,7 @@ const Stats = () => {
 
     useEffect(() =>{
         const fetchData = async () => {
-            const response = await fetch(`http://localhost:5000/api/number_fields/stats`);
+            const response = await fetch(`https://language-exchange-server-mu.vercel.app/api/number_fields/stats`);
 
             const data = await response.json();
 

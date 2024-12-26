@@ -9,7 +9,7 @@ const LanguageCategories = () => {
     
         useEffect(() =>{
             const fetchData = async () => {
-                const response = await fetch(`http://localhost:5000/api/number_fields/teachers`);
+                const response = await fetch(`https://language-exchange-server-mu.vercel.app/api/number_fields/teachers`);
     
                 const data = await response.json();
     

@@ -7,7 +7,7 @@ const TutorDetailsStats = ({email}) => {
     const [countTutorDetails, setCountTutorDetails] = useState({})
 
     useEffect(() => {
-        axios.get(`http://localhost:5000/api/number_fields/teacher_details/${email}`)
+        axios.get(`https://language-exchange-server-mu.vercel.app/api/number_fields/teacher_details/${email}`)
         .then(res => {
             setCountTutorDetails(res.data.data)
         })

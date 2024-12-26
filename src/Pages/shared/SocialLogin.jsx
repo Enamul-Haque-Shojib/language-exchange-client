@@ -19,11 +19,11 @@ const SocialLogin = ({roleSignUp, userStatus}) => {
 
                 if(userStatus === 'Registration'){
                     
-                    url='http://localhost:5000/api/users/register-user'
+                    url='https://language-exchange-server-mu.vercel.app/api/users/register-user'
 
                 }else if(userStatus==='Login'){
                     
-                    url='http://localhost:5000/api/users/login-user'
+                    url='api/users/login-user'
 
                 }
 

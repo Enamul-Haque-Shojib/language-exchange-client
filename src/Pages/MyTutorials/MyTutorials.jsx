@@ -9,7 +9,7 @@ const MyTutorials = () => {
 
     useEffect(() => {
         const fetchData = async () => {
-                const response = await fetch(`http://localhost:5000/api/tutorials?email=${user?.email}`);
+                const response = await fetch(`https://language-exchange-server-mu.vercel.app/api/tutorials?email=${user?.email}`);
 
                 const data = await response.json();
     

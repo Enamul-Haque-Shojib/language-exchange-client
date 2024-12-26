@@ -29,7 +29,7 @@ const StudentBooked = () => {
 
     const handleMyStudentDelete=(email)=>{
             
-      axios.patch(`http://localhost:5000/api/tutorials/teacher-student-delete/${_id}`, {email})
+      axios.patch(`https://language-exchange-server-mu.vercel.app/api/tutorials/teacher-student-delete/${_id}`, {email})
       .then(res => {
           // console.log(res.data)
           const newStudentData = students.filter(data => data.email != email)
@@ -39,7 +39,7 @@ const StudentBooked = () => {
   }
     const handleDeleteTutorial=(id)=>{
             
-      axios.delete(`http://localhost:5000/api/tutorials/${_id}`)
+      axios.delete(`https://language-exchange-server-mu.vercel.app/api/tutorials/${_id}`)
       .then(res => {
           console.log(res.data)
           
@@ -56,8 +56,7 @@ const StudentBooked = () => {
         
         <div className="w-72 rounded-lg overflow-hidden shadow-lg">
           <img
-            src="https://www.open.edu/openlearn/pluginfile.php/3143042/tool_ocwmanage/image/0/dil_1_OLHP_786x400.jpg"
-            className="w-full h-full object-cover"
+            src={tutorialImageURL}
             alt="Tutorial"
           />
         </div>

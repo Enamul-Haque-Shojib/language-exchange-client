@@ -13,7 +13,7 @@ const InProgressBookedTutorials = () => {
 
     
     useEffect(() => {
-        axios.get(`http://localhost:5000/api/tutorials/student-all-booked/booked?userBooked.email=${user?.email}&userBooked.isCompleted=false`)
+        axios.get(`https://language-exchange-server-mu.vercel.app/api/tutorials/student-all-booked/booked?userBooked.email=${user?.email}&userBooked.isCompleted=false`)
                     .then(res => {
                       
                         setTutorials(res.data.data);
@@ -23,7 +23,7 @@ const InProgressBookedTutorials = () => {
 
     const handleMyBookedTutorialDelete=(id)=>{
             
-        axios.patch(`http://localhost:5000/api/tutorials/student-booked-delete/${id}`, {email: user?.email})
+        axios.patch(`https://language-exchange-server-mu.vercel.app/api/tutorials/student-booked-delete/${id}`, {email: user?.email})
         .then(res => {
             
             const newBookedData = tutorials.filter(data => data._id != id)
@@ -34,7 +34,7 @@ const InProgressBookedTutorials = () => {
 
     const handleMyBookedTutorialComplete=(id)=>{
             
-            axios.patch(`http://localhost:5000/api/tutorials/student-booked-complete/${id}`, {email: user?.email})
+            axios.patch(`https://language-exchange-server-mu.vercel.app/api/tutorials/student-booked-complete/${id}`, {email: user?.email})
                     .then(res => {
                 
                     const newBookedData = tutorials.filter(data => data._id != id)

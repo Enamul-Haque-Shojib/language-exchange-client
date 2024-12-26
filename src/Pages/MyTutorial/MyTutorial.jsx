@@ -8,7 +8,7 @@ const MyTutorial = ({tutorial}) => {
 
     return (
       <tr className="hover:bg-gray-50 transition">
-      {/* Tutorials */}
+     
       <td className="p-4">
         <div className="flex items-center gap-4">
           <div className="avatar">
@@ -27,7 +27,7 @@ const MyTutorial = ({tutorial}) => {
         </div>
       </td>
     
-      {/* Days */}
+    
       <td className="p-4 text-center">
         <div className="flex flex-wrap justify-center gap-2">
           {days.map((day, index) => (
@@ -41,12 +41,12 @@ const MyTutorial = ({tutorial}) => {
         </div>
       </td>
     
-      {/* Time */}
+    
       <td className="p-4 text-center">
         <span className="font-semibold text-gray-700">{time}</span>
       </td>
     
-      {/* Booked */}
+     
       <td className="p-4 text-center">
         <Link to={`/student_booked/${_id}`}>
           <button className="btn btn-primary text-white px-6 py-2 rounded-lg hover:shadow-lg transition">
@@ -55,7 +55,7 @@ const MyTutorial = ({tutorial}) => {
         </Link>
       </td>
     
-      {/* Action */}
+     
       <td className="p-4 text-center">
         <Link to={`/update_tutorial/${_id}`}>
           <button className="btn btn-success text-white px-6 py-2 rounded-lg hover:shadow-lg transition">

@@ -7,7 +7,7 @@ const SimilarTutorials = ({language, id}) => {
     const[similarTutorials, setSimilarTutorials] = useState([]);
     
     useEffect(() => {
-        axios.get(`http://localhost:5000/api/tutorials?language=${language}`)
+        axios.get(`https://language-exchange-server-mu.vercel.app/api/tutorials?language=${language}`)
             .then(res => {
         
             setSimilarTutorials(res.data.data);

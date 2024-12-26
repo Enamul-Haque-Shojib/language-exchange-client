@@ -55,7 +55,7 @@ const studentEntry = userBooked.find(student => student.email === emailToSearch)
 
  
     const handleBooked=()=>{
-      axios.patch(`http://localhost:5000/api/tutorials/user-booked/${_id}`, {email:user.email})
+      axios.patch(`https://language-exchange-server-mu.vercel.app/api/tutorials/user-booked/${_id}`, {email:user.email})
       .then(res => {
           // console.log(res.data);
           toast.success('Booked successfully')
