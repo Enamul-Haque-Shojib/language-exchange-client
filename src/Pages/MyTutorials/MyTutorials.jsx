@@ -20,9 +20,6 @@ const MyTutorials = () => {
         if(user?.email) fetchData();
     }, [user?.email]);
     
-  
-    
-   
 
     return (
         <div className="w-full bg-white shadow-lg rounded-lg p-10">

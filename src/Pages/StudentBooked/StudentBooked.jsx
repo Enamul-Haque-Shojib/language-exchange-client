@@ -11,10 +11,8 @@ const StudentBooked = () => {
     const loaderData = useLoaderData();
     const navigate = useNavigate();
     
-    
 
     const {_id,tutorialImageURL, language,userBooked, title, price} = loaderData.data;
-
 
     useEffect(()=>{
       setStudents(userBooked);
@@ -23,9 +21,8 @@ const StudentBooked = () => {
 
   const hasDeletedFalse = students.some(student => student.isDeleted === false);
 
-
   const isButtonDisabled = hasDeletedFalse;
-    
+  
 
     const handleMyStudentDelete=(email)=>{
             
@@ -41,7 +38,7 @@ const StudentBooked = () => {
             
       axios.delete(`https://language-exchange-server-mu.vercel.app/api/tutorials/${_id}`)
       .then(res => {
-          console.log(res.data)
+          // console.log(res.data)
           
           toast.success('Your Tutorial deleted successfully');
           navigate(-1)
