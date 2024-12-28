@@ -55,8 +55,9 @@ const CompletedBookedTutorials = () => {
       
                 {/* Tutorial Information */}
                 <div className="flex-1">
-                  <h3 className="text-xl font-bold text-gray-800">{tutorial.language}</h3>
-                  <p className="text-gray-600">{tutorial.name}</p>
+                  <h3 className="text-xl font-bold text-gray-800">{tutorial.name}</h3>
+                  <p className="text-gray-400 font-bold">{tutorial.title}</p>
+                  <p className="text-gray-600">{tutorial.language}</p>
                   
                 </div>
               </div>
@@ -89,10 +90,10 @@ const CompletedBookedTutorials = () => {
 
               <div className="flex flex-col gap-y-5 items-center justify-between">
               <button
-                    className="text-xl text-red-500 hover:text-red-700 transition"
+                    className="bg-red-100 text-red-600 px-4 py-1 rounded-full text-sm hover:bg-red-200 transition"
                     onClick={() => handleMyBookedTutorialDelete(tutorial._id)}
                   >
-                    <i className="fa-solid fa-x"></i>
+                    Leave
                   </button>
                  
                   <button
