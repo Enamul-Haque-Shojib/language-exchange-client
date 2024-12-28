@@ -16,10 +16,12 @@ import TutorDetailsReviews from './TutorDetailsReviews';
 
 const TutorsDetails = () => {
 
-  const {user, role} = useAuth()
+  const {user, role} = useAuth();
 
   
   const dayss = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
+
+  const [isBooked, setIsBooked] = useState(false)
   
 
   const [dayOffset, setDayOffset] = useState(0);
@@ -58,6 +60,7 @@ const studentEntry = userBooked.find(student => student.email === emailToSearch)
       axios.patch(`https://language-exchange-server-mu.vercel.app/api/tutorials/user-booked/${_id}`, {email:user.email})
       .then(res => {
           // console.log(res.data);
+          setIsBooked(true);
           toast.success('Booked successfully')
   })
     }
@@ -222,18 +225,25 @@ return (
           
           <p className="text-gray-600 mb-4">${price}</p>
           {
-            role==='student' && (
+            role==='student'  && (
               <>
                   {
                     !(studentEntry && !studentEntry?.isDeleted) && <>
                     
 
-                    <button className="w-full py-2 mb-2 bg-blue-500 text-white font-medium rounded-md hover:bg-blue-600" onClick={handleBooked} >
-                  Book Lesson
-                    </button>
-                    <button className="w-full py-2 bg-gray-200 text-gray-800 font-medium rounded-md hover:bg-gray-300">
-                    Save to Wishlist
-                  </button>
+                    {
+                      isBooked ?  <></> : <> <button className="w-full py-2 mb-2 bg-blue-500 text-white font-medium rounded-md hover:bg-blue-600" onClick={handleBooked} >
+                      Book Lesson
+                        </button>
+
+                        <button className="w-full py-2 bg-gray-200 text-gray-800 font-medium rounded-md hover:bg-gray-300">
+                        Save to Wishlist
+                        </button>
+
+                        </>
+                    }
+                    
+                    
                     
                     
                     </>
