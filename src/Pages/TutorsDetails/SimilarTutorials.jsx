@@ -2,16 +2,21 @@ import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Swiper, SwiperSlide } from 'swiper/react';
+import useAxiosSecure from '../../hooks/useAxiosSecure';
 const SimilarTutorials = ({language, id}) => {
+  const axiosInstance = useAxiosSecure();
   const navigate = useNavigate();
     const[similarTutorials, setSimilarTutorials] = useState([]);
     
     useEffect(() => {
-        axios.get(`https://language-exchange-server-mu.vercel.app/api/tutorials?language=${language}`)
-            .then(res => {
-        
-            setSimilarTutorials(res.data.data);
-        })
+
+      axiosInstance.get(`/tutorials?language=${language}`)
+      .then(res => {
+      //  console.log(res.data);
+       setSimilarTutorials(res.data.data);
+      })
+
+     
     },[])
     return (
         <div>

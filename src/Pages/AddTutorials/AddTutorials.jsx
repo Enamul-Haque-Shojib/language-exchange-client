@@ -1,11 +1,17 @@
 import React, { useEffect, useState } from 'react';
-import useAuth from '../../hooks/useAuth';
+
 import Swal from 'sweetalert2';
 import ISO6391 from 'iso-639-1';
 import { toast } from 'react-toastify';
+import useAuth from '../../hooks/useAuth';
+import useAxiosSecure from '../../hooks/useAxiosSecure';
+
+
 
 const AddTutorials = () => {
     const { user, categories, loading } = useAuth();
+    const axiosInstance = useAxiosSecure();
+
     const [copyCategories, setCopyCategories] = useState([]);
 
     useEffect(() => {
@@ -76,20 +82,14 @@ const isValid12HourTime = (time) => {
 
         
         if(isValid12HourTime(initialData.time)){
+
+
+          axiosInstance.post(`/tutorials/create-tutorial`, initialData)
+          .then(res => {
+            console.log(res.data)
+            toast.success('Your Tutorial successfully created')
+        })
             
-                fetch('https://language-exchange-server-mu.vercel.app/api/tutorials/create-tutorial', {
-                    method: 'POST',
-                    headers: {
-                        'content-type': 'application/json'
-                    },
-                    body: JSON.stringify(initialData)
-                })
-                    .then(res => res.json())
-                    .then(data => {
-                        console.log(data)
-                        toast.success('Your Tutorial successfully created')
-                        
-                    })
                     
             }else{
                 toast.error('Time format not Correct')

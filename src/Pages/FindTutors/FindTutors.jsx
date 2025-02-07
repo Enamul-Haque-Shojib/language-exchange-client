@@ -4,16 +4,19 @@ import { useLoaderData, useParams } from 'react-router-dom';
 import Categories from '../Categories/Categories';
 import Tutors from '../Tutors/Tutors';
 import axios from 'axios';
+import useAxiosSecure from '../../hooks/useAxiosSecure';
 
 
 const FindTutors = () => {
+
+    const axiosInstance = useAxiosSecure();
     const loadTutorsData = useLoaderData();
 
    const {category} = useParams();
     
   
     const [tutors, setTutors] = useState([]);
-    
+    // console.log(tutors)
 
     useEffect(()=>{
         setTutors(loadTutorsData.data)
@@ -30,13 +33,12 @@ const FindTutors = () => {
         e.preventDefault();
         const languageName = e.target.name.value;
         
-console.log(languageName)
-        axios.get(`https://language-exchange-server-mu.vercel.app/api/tutorials?language=${languageName}`)
+        axiosInstance.get(`/tutorials?language=${languageName}`)
         .then(res => {
-            console.log(res.data)
+            // console.log(res.data)
             setTutors(res.data.data);
             e.target.name.value='';
-    })
+        })
     }
 
 

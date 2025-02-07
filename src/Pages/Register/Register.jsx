@@ -1,12 +1,15 @@
 import React, { useState } from 'react';
 import { FaEye, FaEyeSlash } from 'react-icons/fa';
 import { Link, useNavigate } from 'react-router-dom';
-import useAuth from '../../hooks/useAuth';
+
 import { Helmet } from 'react-helmet-async';
 import SocialLogin from '../shared/SocialLogin';
 import { toast } from 'react-toastify';
+import useAuth from '../../hooks/useAuth';
+import useAxiosSecure from '../../hooks/useAxiosSecure';
 
 const Register = () => {
+  const axiosInstance = useAxiosSecure();
     const { createUser, updateUserProfile,  setRole} = useAuth();
     const navigate = useNavigate();
     const [showPassword, setShowPassword] = useState(false); 
@@ -42,20 +45,11 @@ const Register = () => {
                 
                 updateUserProfile(newUser, displayName, photoURL)
                     .then(() => {
-                        
 
-                        const fetchData = async()=>{
-                            const response = await fetch('https://language-exchange-server-mu.vercel.app/api/users/register-user',{
-                                method: 'POST',
-                                headers: {
-                                    'Content-Type': 'application/json', 
-                                },
-                                body: JSON.stringify(userData),
-                            });
-                            const data = await response.json();
-                            console.log(data)
-                        }
-                        fetchData();
+                      axiosInstance.post(`/users/register-user`,userData)
+                      .then(res => {
+                        console.log(res.data)
+                    })
 
                         toast.success("Registration successful!");
                         setRole(role)

@@ -2,9 +2,12 @@ import axios from 'axios';
 import React from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import useAuth from '../../hooks/useAuth';
+import useAxiosSecure from '../../hooks/useAxiosSecure';
+
 
 const ReviewsComment = () => {
-    const {user} = useAuth()
+    const axiosInstance = useAxiosSecure();
+    const {user} = useAuth();
     const navigate = useNavigate();
     const {id} = useParams();
 
@@ -18,12 +21,13 @@ const ReviewsComment = () => {
             email: user.email,
             comment
         } 
-        console.log(userReview, id);
-        axios.patch(`https://language-exchange-server-mu.vercel.app/api/tutorials/user-review/${id}`,userReview)
-            .then(res => {
-            console.log(res)
-                 
+        
+
+        axiosInstance.patch(`/tutorials/user-review/${id}`, userReview)
+        .then(res => {
+         console.log(res.data);
         })
+
         navigate(-1);
     }
    

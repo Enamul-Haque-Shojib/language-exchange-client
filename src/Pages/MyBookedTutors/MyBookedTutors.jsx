@@ -1,14 +1,15 @@
 import React from 'react';
-import useAuth from '../../hooks/useAuth';
+
 
 import InProgressBookedTutorials from './InProgressBookedTutorials';
 import CompletedBookedTutorials from './CompletedBookedTutorials';
 import { Helmet } from 'react-helmet-async';
 import { Tab, TabList, TabPanel, Tabs } from 'react-tabs';
+import useAuth from '../../hooks/useAuth';
 
 
 const MyBookedTutors = () => {
-    const {user} = useAuth()
+    const {user} = useAuth();
 
     return (
       

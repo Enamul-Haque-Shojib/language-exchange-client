@@ -5,10 +5,13 @@ import React, { useEffect, useState } from 'react';
 import AuthContext from './AuthContext';
 import { auth } from '../../Firebase/firebase.init';
 import axios from 'axios';
+import useAxiosSecure from '../../hooks/useAxiosSecure';
 
 
 const googleProvider = new GoogleAuthProvider();
 const AuthProvider = ({children}) => {
+
+    
     const [user, setUser] = useState(null);
     const [role, setRole] = useState(null);
     const [loading, setLoading] = useState(true);
@@ -75,6 +78,7 @@ const AuthProvider = ({children}) => {
 
             if (currentUser?.email) {
                 const user = { email: currentUser.email, role};
+
                 
 
                 axios.post('https://language-exchange-server-mu.vercel.app/api/token_access/jwt', user, { withCredentials: true })

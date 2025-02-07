@@ -1,13 +1,14 @@
 import React, { useState } from 'react';
 import { Helmet } from 'react-helmet-async';
 
-import useAuth from '../../hooks/useAuth';
+
 import './MyProfile.css'
 
 import { Tab, TabList, TabPanel, Tabs } from 'react-tabs';
 import 'react-tabs/style/react-tabs.css';
 import Profile from './profile';
 import AboutMe from './AboutMe';
+import useAuth from '../../hooks/useAuth';
 
 
 

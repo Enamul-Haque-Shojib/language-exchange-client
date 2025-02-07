@@ -1,10 +1,14 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { useLoaderData, useNavigate } from 'react-router-dom';
-import useAuth from '../../hooks/useAuth';
+
 import { toast } from 'react-toastify';
+import useAuth from '../../hooks/useAuth';
+import useAxiosSecure from '../../hooks/useAxiosSecure';
 
 const StudentBooked = () => {
+
+  const axiosInstance = useAxiosSecure();
   const{user} = useAuth();
     const[students, setStudents] = useState([]);
 
@@ -25,24 +29,28 @@ const StudentBooked = () => {
   
 
     const handleMyStudentDelete=(email)=>{
-            
-      axios.patch(`https://language-exchange-server-mu.vercel.app/api/tutorials/teacher-student-delete/${_id}`, {email})
+
+      axiosInstance.patch(`/tutorials/teacher-student-delete/${_id}`, {email})
       .then(res => {
-          // console.log(res.data)
-          const newStudentData = students.filter(data => data.email != email)
-          setStudents(newStudentData);
-          toast.success('Your student deleted from the tutorial successfully');
+      //  console.log(res.data);
+      const newStudentData = students.filter(data => data.email != email)
+      setStudents(newStudentData);
+      toast.success('Your student deleted from the tutorial successfully');
       })
+
+            
+      
   }
     const handleDeleteTutorial=(id)=>{
-            
-      axios.delete(`https://language-exchange-server-mu.vercel.app/api/tutorials/${_id}`)
+
+      axiosInstance.delete(`/tutorials/${_id}`)
       .then(res => {
-          // console.log(res.data)
-          
-          toast.success('Your Tutorial deleted successfully');
-          navigate(-1)
+      //  console.log(res.data);
+      toast.success('Your Tutorial deleted successfully');
+      navigate(-1)
       })
+            
+    
   }
 
 

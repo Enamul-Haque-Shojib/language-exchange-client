@@ -1,24 +1,24 @@
 import React, { useEffect, useState } from 'react';
-import useAuth from '../../hooks/useAuth';
+
 import MyTutorial from '../MyTutorial/MyTutorial';
+import useAuth from '../../hooks/useAuth';
+import useAxiosSecure from '../../hooks/useAxiosSecure';
 
 const MyTutorials = () => {
+  const axiosInstance = useAxiosSecure();
     const {user, loading} = useAuth();
     
     const [tutorials, setTutorials] = useState([]);
 
     useEffect(() => {
-        const fetchData = async () => {
-                const response = await fetch(`https://language-exchange-server-mu.vercel.app/api/tutorials?email=${user?.email}`);
 
-                const data = await response.json();
-    
-                setTutorials(data.data);
-            
-        };
-    
-        if(user?.email) fetchData();
-    }, [user?.email]);
+
+      axiosInstance.get(`/tutorials?email=${user?.email}`)
+      .then(res => {
+        setTutorials(res.data.data);
+       })
+          
+    }, []);
     
 
     return (

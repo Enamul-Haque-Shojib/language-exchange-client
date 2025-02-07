@@ -3,8 +3,9 @@
 import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
 import { toast } from "react-toastify";
-import useAuth from "../../hooks/useAuth";
+
 import "./Navbar.css";
+import useAuth from "../../hooks/useAuth";
 
 const Navbar = () => {
   const [open, setOpen] = useState(false);

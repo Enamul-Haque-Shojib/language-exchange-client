@@ -1,18 +1,18 @@
 import React, { useEffect, useState } from 'react';
+import useAxiosSecure from '../../hooks/useAxiosSecure';
 
 const Stats = () => {
     const [statsNumber, setStatsNumber] = useState({});
+    const axiosInstance = useAxiosSecure();
 
     useEffect(() =>{
-        const fetchData = async () => {
-            const response = await fetch(`https://language-exchange-server-mu.vercel.app/api/number_fields/stats`);
+      
+          axiosInstance.get(`/number_fields/stats`)
+          .then(res => {
+            console.log(res.data)
+            setStatsNumber(res.data.data);
+        })
 
-            const data = await response.json();
-
-            setStatsNumber(data?.data); 
-    };
-
-    fetchData();
     },[]);
     return (
         

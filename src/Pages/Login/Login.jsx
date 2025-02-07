@@ -1,12 +1,15 @@
 import React from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import SocialLogin from '../shared/SocialLogin'
-import useAuth from '../../hooks/useAuth';
+
 import { Helmet } from 'react-helmet-async';
 import { toast } from 'react-toastify';
 import axios from 'axios';
+import useAuth from '../../hooks/useAuth';
+import useAxiosSecure from '../../hooks/useAxiosSecure';
 
 const Login = () => {
+  const axiosInstance = useAxiosSecure();
     const {signInUser, signInWithGoogle} = useAuth();
     const navigate = useNavigate();
 
@@ -19,12 +22,13 @@ const Login = () => {
         .then(result =>{
             // console.log(result.user);
             const userData = {user:{email}}
+
+            axiosInstance.post(`/users/login-user`, userData)
+            .then(res => {
+             console.log(res.data);
+            })
               
-              axios.post('https://language-exchange-server-mu.vercel.app/api/users/login-user', userData, { withCredentials: true })
-                    .then(res => {
-                        console.log('login token', res.data);
-                        
-                    })
+             
 
             toast.success('Login successfully!')
             e.target.reset();

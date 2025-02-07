@@ -1,10 +1,13 @@
 import React from 'react';
-import useAuth from '../../hooks/useAuth';
+
 
 import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
+import useAuth from '../../hooks/useAuth';
+import useAxiosSecure from '../../hooks/useAxiosSecure';
 
 const SocialLogin = ({roleSignUp, userStatus}) => {
+    const axiosInstance = useAxiosSecure();
     const {signInWithGoogle} = useAuth();
     const navigate = useNavigate();
 
@@ -19,26 +22,20 @@ const SocialLogin = ({roleSignUp, userStatus}) => {
 
                 if(userStatus === 'Registration'){
                     
-                    url='https://language-exchange-server-mu.vercel.app/api/users/register-user'
+                    url='/users/register-user'
 
                 }else if(userStatus==='Login'){
                     
-                    url='api/users/login-user'
+                    url='/users/login-user'
 
                 }
 
-                const fetchData = async()=>{
-                    const response = await fetch(url,{
-                        method: 'POST',
-                        headers: {
-                            'Content-Type': 'application/json', 
-                        },
-                        body: JSON.stringify(userData),
-                       });
-                    const data = await response.json();
-                        
-                }
-                fetchData();
+
+                axiosInstance.post(url, userData)
+                .then(res => {
+                //  console.log(res.data);
+                })
+
 
                 toast.success(`${userStatus} successfully!`);
                 navigate('/');

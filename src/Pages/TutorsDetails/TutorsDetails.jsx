@@ -6,15 +6,18 @@ import { Link, useLoaderData, useParams } from 'react-router-dom';
 
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import TutorMoreLessons from './TutorMoreLessons';
-import useAuth from '../../hooks/useAuth';
+
 import TutorDetailsStats from './TutorDetailsStats';
 import SimilarTutorials from './SimilarTutorials';
 import { toast } from 'react-toastify';
 import axios from 'axios';
 import TutorDetailsReviews from './TutorDetailsReviews';
+import useAuth from '../../hooks/useAuth';
+import useAxiosSecure from '../../hooks/useAxiosSecure';
 
 
 const TutorsDetails = () => {
+  const axiosInstance = useAxiosSecure();
 
   const {user, role} = useAuth();
 
@@ -57,12 +60,15 @@ const studentEntry = userBooked.find(student => student.email === emailToSearch)
 
  
     const handleBooked=()=>{
-      axios.patch(`https://language-exchange-server-mu.vercel.app/api/tutorials/user-booked/${_id}`, {email:user.email})
+      axiosInstance.patch(`/tutorials/user-booked/${_id}`, {email:user.email})
       .then(res => {
-          // console.log(res.data);
-          setIsBooked(true);
+      //  console.log(res.data);
+       setIsBooked(true);
           toast.success('Booked successfully')
-  })
+      })
+
+
+
     }
     
 

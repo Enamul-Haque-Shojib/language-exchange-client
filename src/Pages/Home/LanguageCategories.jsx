@@ -1,22 +1,24 @@
 import React, { useEffect, useState } from 'react';
-import useAuth from '../../hooks/useAuth';
+
 import { Link } from 'react-router-dom';
+import useAxiosSecure from '../../hooks/useAxiosSecure';
 
 const LanguageCategories = () => {
+
+  const axiosInstance = useAxiosSecure();
 
     const [teachersNumber, setTeachersNumber] = useState([]);
 
     
         useEffect(() =>{
-            const fetchData = async () => {
-                const response = await fetch(`https://language-exchange-server-mu.vercel.app/api/number_fields/teachers`);
-    
-                const data = await response.json();
-    
-                setTeachersNumber(data.data); 
-        };
-    
-        fetchData();
+
+          axiosInstance.get(`/number_fields/teachers`)
+          .then(res => {
+            console.log(res.data)
+            setTeachersNumber(res.data.data);
+        })
+
+
         },[]);
 
         // const mappedArray = Object.entries(teachersNumber).map(([language, count]) => {

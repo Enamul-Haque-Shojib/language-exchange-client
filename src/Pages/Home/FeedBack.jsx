@@ -4,16 +4,21 @@ import React, { useEffect, useState } from 'react';
 
 import { Virtual, Navigation, Pagination } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
+import useAxiosSecure from '../../hooks/useAxiosSecure';
 
 const FeedBack = () => {
+  const axiosInstance = useAxiosSecure();
     const [feedbacks, setFeedbacks] = useState([]);
 
     useEffect(() => {
-        axios.get(`https://language-exchange-server-mu.vercel.app/api/users/feedback`)
-            .then(res => {
-        
-                setFeedbacks(res.data.data);
-        })
+
+      axiosInstance.get(`/users/feedback`)
+      .then(res => {
+        setFeedbacks(res.data.data);
+    })
+
+
+
     },[])
     return (
         

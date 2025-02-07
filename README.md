@@ -1,5 +1,5 @@
 
-## Category: assignment_category_14
+
 
 
 ## Website Name:
@@ -8,6 +8,8 @@
 ## Website Live link:
  <https://language-exchange-68268.web.app/>
 
+## Project Overview:
+User can register as a tutor or student. Tutor can add tutorial and can see how student booked his tutorial. Student can booked any tutorial as he likes
 
  ## Features:
  - User can register as a tutor or student

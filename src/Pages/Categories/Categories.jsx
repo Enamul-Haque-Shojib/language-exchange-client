@@ -1,7 +1,8 @@
 import React from 'react';
-import useAuth from '../../hooks/useAuth';
+
 import Category from '../Category/Category';
 import { Link } from 'react-router-dom';
+import useAuth from '../../hooks/useAuth';
 
 const Categories = () => {
     const {categories} = useAuth();

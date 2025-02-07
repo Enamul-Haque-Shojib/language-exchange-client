@@ -1,37 +1,44 @@
 import React, { useEffect, useState } from 'react';
-import useAuth from '../../hooks/useAuth';
+
 import axios from 'axios';
 import { toast } from 'react-toastify';
 import { useNavigate } from 'react-router-dom';
+import useAuth from '../../hooks/useAuth';
+import useAxiosSecure from '../../hooks/useAxiosSecure';
 
 const CompletedBookedTutorials = () => {
 
-    const {user} = useAuth();
+  const axiosInstance = useAxiosSecure();
+    const {user} = useAuth()
     const navigate = useNavigate();
 
     const[tutorials, setTutorials] = useState([])
 
     
     useEffect(() => {
-        axios.get(`https://language-exchange-server-mu.vercel.app/api/tutorials/student-all-booked/booked?userBooked.email=${user?.email}&userBooked.isCompleted=true`)
-                .then(res => {
-                    
-                    setTutorials(res.data.data);
-                    
-                })
+
+
+      axiosInstance.get(`/tutorials/student-all-booked/booked?userBooked.email=${user?.email}&userBooked.isCompleted=true`)
+      .then(res => {
+        // console.log(res.data)
+        setTutorials(res.data.data);
+    })
+
+
 
     }, []);
 
 
     const handleMyBookedTutorialDelete=(id)=>{
-            
-        axios.patch(`https://language-exchange-server-mu.vercel.app/api/tutorials/student-booked-delete/${id}`, {email: user?.email})
-        .then(res => {
-            
-            const newBookedData = tutorials.filter(data => data._id != id)
-            setTutorials(newBookedData);
-            toast.success('You successfully deleted the tutorial');
-        })
+
+      axiosInstance.patch(`/tutorials/student-booked-delete/${id}`,{email: user?.email})
+      .then(res => {
+        const newBookedData = tutorials.filter(data => data._id != id)
+        setTutorials(newBookedData);
+        toast.success('You successfully left the tutorial');
+    })
+
+
     }
 
 

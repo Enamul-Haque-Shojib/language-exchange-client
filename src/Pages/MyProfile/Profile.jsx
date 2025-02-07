@@ -1,12 +1,15 @@
 import React from 'react';
-import useAuth from '../../hooks/useAuth';
+
 import Swal from 'sweetalert2';
 import { EmailAuthProvider, reauthenticateWithCredential } from 'firebase/auth';
 import { auth } from '../../Firebase/firebase.init';
 import { toast } from 'react-toastify';
 import { useNavigate } from 'react-router-dom';
+import useAuth from '../../hooks/useAuth';
+import useAxiosSecure from '../../hooks/useAxiosSecure';
 
 const Profile = () => {
+  const axiosInstance = useAxiosSecure();
     const {user,setUser, updateUserProfile, loading, deleteUserProfile} = useAuth();
     const navigate = useNavigate();
     
@@ -18,6 +21,7 @@ const Profile = () => {
    
 
     const handleUpdateProfile =(e)=>{
+
         e.preventDefault();
         const displayName = e.target.name.value;
         const photoURL = e.target.photo_url.value;
@@ -26,19 +30,14 @@ const Profile = () => {
        
             updateUserProfile(auth.currentUser, displayName, photoURL)
                 .then(() => {
-                  
-                  const fetchData = async()=>{
-                    const response = await fetch(`https://language-exchange-server-mu.vercel.app/api/users/${email}`,{
-                        method: 'PATCH',
-                        headers: {
-                            'Content-Type': 'application/json', 
-                        },
-                        body: JSON.stringify(userUpdateData),
-                    });
-                    const data = await response.json();
-                    // console.log(data)
-                }
-                fetchData();
+
+
+                  axiosInstance.patch(`/users/${email}`, userUpdateData)
+                  .then(res => {
+                   console.log(res.data);
+                  })
+
+
 
                     toast.success("Profile updated successfully");
                     setUser((prevUser) => ({
@@ -75,18 +74,13 @@ const handleDeleteAccount=async()=>{
       .then(() => {
       deleteUserProfile()
       .then(() => {
-                      
-        const fetchData = async()=>{
-          const response = await fetch(`https://language-exchange-server-mu.vercel.app/api/users/${email}`,{
-              method: 'DELETE',
-              headers: {
-                  'Content-Type': 'application/json', 
-              },
-          });
-          const data = await response.json();
-          
-      }
-      fetchData();
+
+        axiosInstance.delete(`/users/${email}`)
+        .then(res => {
+         console.log(res.data);
+        })
+
+
       
       })
       .catch((error) => {
