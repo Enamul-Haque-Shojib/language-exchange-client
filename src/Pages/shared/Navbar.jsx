@@ -52,6 +52,13 @@ const Navbar = () => {
           >
             Find Tutors
           </NavLink>
+          <NavLink
+            to="/about"
+            className="transition duration-300 hover:text-yellow-300"
+            activeclassname="active"
+          >
+            About
+          </NavLink>
           {user && role === "tutor" && (
             <>
               <NavLink
@@ -174,6 +181,14 @@ const Navbar = () => {
               onClick={handleNavField}
             >
               Find Tutors
+            </NavLink>
+            <NavLink
+              to="/about"
+              className="block text-lg hover:text-indigo-500"
+              activeclassname="active"
+              onClick={handleNavField}
+            >
+              About
             </NavLink>
             {role === "tutor" && (
               <>

@@ -13,6 +13,7 @@ import MyTutorials from "../Pages/MyTutorials/MyTutorials";
 import MyBookedTutors from "../Pages/MyBookedTutors/MyBookedTutors";
 import StudentBooked from "../Pages/StudentBooked/StudentBooked";
 import ReviewsComment from "../Pages/MyBookedTutors/ReviewsComment";
+import About from "../Pages/About/About";
 
   
   const router = createBrowserRouter([
@@ -32,6 +33,10 @@ import ReviewsComment from "../Pages/MyBookedTutors/ReviewsComment";
         {
           path: '/register',
           element: <Register></Register>
+        },
+        {
+          path: '/about',
+          element: <About></About>
         },
         {
           path: '/add_tutorials',
