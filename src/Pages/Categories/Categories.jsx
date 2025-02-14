@@ -14,7 +14,7 @@ const Categories = () => {
             
               <div
               
-                  className="p-3 bg-white border rounded-lg shadow-sm cursor-pointer hover:shadow-md transition "
+                  className="p-1 bg-white border rounded-lg shadow-sm cursor-pointer hover:shadow-md transition "
                 >
                  <Link to='/find_tutors/All'><h3 className="text-gray-800 font-medium">All</h3></Link> 
                 </div>
