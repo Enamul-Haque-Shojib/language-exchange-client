@@ -14,13 +14,14 @@ import MyBookedTutors from "../Pages/MyBookedTutors/MyBookedTutors";
 import StudentBooked from "../Pages/StudentBooked/StudentBooked";
 import ReviewsComment from "../Pages/MyBookedTutors/ReviewsComment";
 import About from "../Pages/About/About";
+import ErrorPage from "../Pages/ErrorPage/ErrorPage";
 
   
   const router = createBrowserRouter([
     {
       path: "/",
       element: <MainLayout></MainLayout>,
-      errorElement: <h2>Route not found</h2>,
+      errorElement: <ErrorPage></ErrorPage>,
       children: [
         {
           path: '/',

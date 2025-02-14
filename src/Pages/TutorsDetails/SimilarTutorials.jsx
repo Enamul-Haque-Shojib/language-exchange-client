@@ -25,7 +25,7 @@ const SimilarTutorials = ({language, id}) => {
             <Swiper slidesPerView={4} spaceBetween={10}>
             {similarTutorials.map(tutorial => (
               <SwiperSlide key={tutorial._id}>
-                <div className="max-w-sm mx-auto bg-white shadow-lg rounded-lg overflow-hidden border" onClick={()=>{navigate(`/tutor_details/${tutorial._id}`)}}>
+                <div className="max-w-sm mx-auto bg-white shadow-lg rounded-lg overflow-hidden border cursor-pointer" onClick={()=>{navigate(`/tutor_details/${tutorial._id}`)}}>
                   <div className="relative">
                     <img
                       src={tutorial.tutorialImageURL}

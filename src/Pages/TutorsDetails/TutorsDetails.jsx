@@ -242,9 +242,9 @@ return (
                       Book Lesson
                         </button>
 
-                        <button className="w-full py-2 bg-gray-200 text-gray-800 font-medium rounded-md hover:bg-gray-300">
+                        {/* <button className="w-full py-2 bg-gray-200 text-gray-800 font-medium rounded-md hover:bg-gray-300">
                         Save to Wishlist
-                        </button>
+                        </button> */}
 
                         </>
                     }

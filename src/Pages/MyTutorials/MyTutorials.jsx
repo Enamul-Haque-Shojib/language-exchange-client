@@ -22,7 +22,7 @@ const MyTutorials = () => {
     
 
     return (
-        <div className="w-full bg-white shadow-lg rounded-lg p-10">
+        <div className="w-full bg-white shadow-lg rounded-lg p-10 h-full">
         <h2 className="text-3xl font-bold text-gray-800 border-b pb-4 mb-6 text-center">
           Tutorial List
         </h2>
