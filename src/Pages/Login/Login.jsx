@@ -35,7 +35,7 @@ const Login = () => {
             navigate('/');
         })
         .catch(error =>{
-            // console.log('ERROR',error.message);
+            
             toast.error('Email or password invalid');
         })
     }
