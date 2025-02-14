@@ -1,6 +1,7 @@
 import React from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation } from 'swiper/modules';
+import { Link } from 'react-router-dom';
 
 
 const Slider = () => {
@@ -30,9 +31,11 @@ const Slider = () => {
                   <p className="text-lg leading-relaxed mb-6">
                     Explore endless possibilities with personalized education. Join a community of learners and achieve your goals.
                   </p>
+                  <Link to='/find_tutors/All'>
                   <button className="btn btn-primary px-8 py-3 text-lg rounded-full shadow-md hover:bg-blue-600 transition">
                     Get Started
                   </button>
+                  </Link>
                 </div>
               </div>
             </div>
@@ -53,9 +56,11 @@ const Slider = () => {
                   <p className="text-lg leading-relaxed mb-6">
                     Achieve your academic and personal goals with tailored tutoring designed just for you.
                   </p>
+                  <Link to='/find_tutors/All'>
                   <button className="btn btn-primary px-8 py-3 text-lg rounded-full shadow-md hover:bg-blue-600 transition">
                     Learn More
                   </button>
+                  </Link>
                 </div>
               </div>
             </div>
@@ -76,9 +81,11 @@ const Slider = () => {
                   <p className="text-lg leading-relaxed mb-6">
                     Get the tools and support you need to excel in your studies and beyond.
                   </p>
+                  <Link to='/find_tutors/All'>
                   <button className="btn btn-primary px-8 py-3 text-lg rounded-full shadow-md hover:bg-blue-600 transition">
                     Join Now
                   </button>
+                  </Link>
                 </div>
               </div>
             </div>

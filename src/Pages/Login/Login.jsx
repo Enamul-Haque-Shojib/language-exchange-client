@@ -98,11 +98,7 @@ const Login = () => {
             </button>
           </form>
   
-          <div className="mt-6 flex items-center justify-between">
-            <hr className="w-1/3 border-gray-300" />
-            <span className="text-gray-500 text-sm">or</span>
-            <hr className="w-1/3 border-gray-300" />
-          </div>
+       
   
         
           <SocialLogin roleSignUp='' userStatus='Login'></SocialLogin>

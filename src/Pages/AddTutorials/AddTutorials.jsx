@@ -206,7 +206,7 @@ const isValid12HourTime = (time) => {
                     {category}
                   </option>
                 ))}
-                <option value="custom">Add custom value</option>
+                <option value="custom">Add custom language</option>
               </select>
               {selectedValue === "" && (
                 <div className="mt-3 flex gap-3">
@@ -214,7 +214,7 @@ const isValid12HourTime = (time) => {
                     type="text"
                     value={customValue}
                     onChange={handleCustomInputChange}
-                    placeholder="Type custom value"
+                    placeholder="Type custom language"
                     className="input input-bordered flex-grow"
                   />
                   <button
@@ -226,7 +226,7 @@ const isValid12HourTime = (time) => {
                 </div>
               )}
               <p className="mt-2 text-sm text-gray-600">
-                <strong>Selected Value:</strong> {selectedValue || customValue || "None"}
+                <strong>Selected Language:</strong> {selectedValue || customValue || "None"}
               </p>
             </div>
           </div>
