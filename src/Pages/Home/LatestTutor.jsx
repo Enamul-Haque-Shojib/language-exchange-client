@@ -16,7 +16,6 @@ const LatestTutor = () => {
 
         axiosInstance.get(`/users/img-tutor`)
         .then(res => {
-        //   console.log(res.data)
           setImages(res.data.data);
       })
     
