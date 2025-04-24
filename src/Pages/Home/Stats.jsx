@@ -9,7 +9,7 @@ const Stats = () => {
       
           axiosInstance.get(`/number_fields/stats`)
           .then(res => {
-            console.log(res.data)
+            
             setStatsNumber(res.data.data);
         })
 
