@@ -25,7 +25,7 @@ const Login = () => {
 
             axiosInstance.post(`/users/login-user`, userData)
             .then(res => {
-             console.log(res.data);
+            //  console.log(res.data);
             })
               
              
