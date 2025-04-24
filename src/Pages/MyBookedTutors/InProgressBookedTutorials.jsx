@@ -20,7 +20,6 @@ const InProgressBookedTutorials = () => {
 
       axiosInstance.get(`/tutorials/student-all-booked/booked?userBooked.email=${user?.email}&userBooked.isCompleted=false`)
       .then(res => {
-        // console.log(res.data)
         setTutorials(res.data.data);
     })
 
