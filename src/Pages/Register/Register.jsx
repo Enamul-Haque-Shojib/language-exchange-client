@@ -48,7 +48,7 @@ const Register = () => {
 
                       axiosInstance.post(`/users/register-user`,userData)
                       .then(res => {
-                        console.log(res.data)
+                        // console.log(res.data)
                     })
 
                         toast.success("Registration successful!");

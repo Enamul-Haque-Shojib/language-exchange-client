@@ -15,8 +15,6 @@ const Tutor = ({tutor}) => {
               alt={name}
               className="w-24 h-24 lg:w-32 lg:h-32 rounded-full shadow-lg object-cover"
             />
-      
-          
             <div className="flex-1">
               <h1 className="text-xl lg:text-2xl font-bold text-gray-800">{name}</h1>
               <p className="text-gray-600 text-md lg:text-lg mt-2">{title}</p>
