@@ -8,7 +8,8 @@ import useAuth from './useAuth';
 
 
 const axiosInstance = axios.create({
-    baseURL: 'https://language-exchange-server-mu.vercel.app/api',
+    // baseURL: 'https://language-exchange-server-mu.vercel.app/api',
+    baseURL: 'http://localhost:5000/api',
     withCredentials: true
 });
 const useAxiosSecure = () => {

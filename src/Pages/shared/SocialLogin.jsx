@@ -48,7 +48,7 @@ const SocialLogin = ({roleSignUp, userStatus}) => {
         <div className='m-4'>
               <div className="divider">OR</div>
 
-            <button onClick={handleGoogleSignIn} className='btn w-full'><i class="fa-brands fa-google"></i>Sign in with Google</button>
+            <button onClick={handleGoogleSignIn} className='btn w-full'><i className="fa-brands fa-google"></i>Sign in with Google</button>
         </div>
     );
 };

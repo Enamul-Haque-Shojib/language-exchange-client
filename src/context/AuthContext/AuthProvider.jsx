@@ -16,7 +16,7 @@ const AuthProvider = ({children}) => {
     const [role, setRole] = useState(null);
     const [loading, setLoading] = useState(true);
 
-     
+     console.log('------->>>>>>>>>>>>>',user)
 
     const [categories, setCategories] = useState([]);
     const [tutors, setTutors] = useState([]);
@@ -24,14 +24,16 @@ const AuthProvider = ({children}) => {
     
     useEffect(() => {
         const fetchData = async()=>{
-          const response = await fetch(`https://language-exchange-server-mu.vercel.app/api/categories`);
+        //   const response = await fetch(`https://language-exchange-server-mu.vercel.app/api/categories`);
+          const response = await fetch(`http://localhost:5000/api/categories`);
           const data = await response.json();
           setCategories(data.data.map(item => item.title));
         
       }
       fetchData();
       const fetchData2 = async () => {
-        const response = await fetch('https://language-exchange-server-mu.vercel.app/api/tutorials/');
+        // const response = await fetch('https://language-exchange-server-mu.vercel.app/api/tutorials/');
+        const response = await fetch('http://localhost:5000/api/tutorials/');
         const data = await response.json();
         setTutors(data.data);
     };
@@ -81,7 +83,10 @@ const AuthProvider = ({children}) => {
 
                 
 
-                axios.post('https://language-exchange-server-mu.vercel.app/api/token_access/jwt', user, { withCredentials: true })
+                axios.post(
+                    // 'https://language-exchange-server-mu.vercel.app/api/token_access/jwt',
+                    'http://localhost:5000/api/token_access/jwt',
+                     user, { withCredentials: true })
                     .then(res => {
                         
                         setRole(res.data.data.role)
@@ -90,7 +95,10 @@ const AuthProvider = ({children}) => {
 
             }
             else {
-                axios.post('https://language-exchange-server-mu.vercel.app/api/token_access/logout', {}, {
+                axios.post(
+                    // 'https://language-exchange-server-mu.vercel.app/api/token_access/logout',
+                    'http://localhost:5000/api/token_access/logout',
+                     {}, {
                     withCredentials: true
                 })
                 .then(res => {
