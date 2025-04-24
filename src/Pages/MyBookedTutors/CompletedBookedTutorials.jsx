@@ -20,7 +20,7 @@ const CompletedBookedTutorials = () => {
 
       axiosInstance.get(`/tutorials/student-all-booked/booked?userBooked.email=${user?.email}&userBooked.isCompleted=true`)
       .then(res => {
-        // console.log(res.data)
+        
         setTutorials(res.data.data);
     })
 
